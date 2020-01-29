@@ -23,7 +23,7 @@ def get_weather(url, city, payload):
 	r = requests.post(url, params=payload)
 	data = r.json()
 
-	weather = data['weather'][0]['description']  # получаем данные о погоде (осадки, пасмурно, солнечно и тд. ...)
+	weather = data['weather'][0]['description'].capitalize()  # получаем данные о погоде (осадки, пасмурно, солнечно и тд. ...)
 	pressure = data['main']['pressure'] * 0.75   # получаем значение атмосферного давления и переводим в мм. рт. ст.
 	humidity = data['main']['humidity']          # получаем значение влажности
 	temp = data['main']['temp']                  #получаем значение температуры
